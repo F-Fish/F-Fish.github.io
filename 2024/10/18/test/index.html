@@ -28,7 +28,7 @@
 <meta property="og:description" content="Debye 的固体 固体里面可以传递声波，这种声波就是原子在其平衡位置附近的小振动。如果这种振动的特征波长远大于原子间距，就可以把它看成是连续化的。 在一个各向同性的固体里面，声波可以有两种形式：一种是横波，一种是纵波。用 \(\boldsymbol\xi (\boldsymbol x,t)\) 来表示 \((\boldsymbol{x},t)\) 处原子相对平衡位置的移动，微观上的波动方程给我们">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-10-18T20:29:11.000Z">
-<meta property="article:modified_time" content="2024-10-18T20:46:47.973Z">
+<meta property="article:modified_time" content="2024-10-18T21:09:49.490Z">
 <meta property="article:author" content="Bowen Yu">
 <meta name="twitter:card" content="summary">
 
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-10-18 16:29:11 / Modified: 16:46:47" itemprop="dateCreated datePublished" datetime="2024-10-18T16:29:11-04:00">2024-10-18</time>
+              <time title="Created: 2024-10-18 16:29:11 / Modified: 17:09:49" itemprop="dateCreated datePublished" datetime="2024-10-18T16:29:11-04:00">2024-10-18</time>
             </span>
 
           
@@ -203,9 +203,9 @@ class="math inline">\(c=c_l\)</span>。原子的一般运动可以写作</p>
 <p><span class="math display">\[
 \boldsymbol{\xi }\left( \boldsymbol{x},t \right)
 =\sum_{\boldsymbol{k}}{\boldsymbol{\xi }_l}\left( \boldsymbol{k} \right)
-\exp \left( i\boldsymbol{k}\cdot \boldsymbol{x}-i\omega _lt \right)
+\exp \left( i\boldsymbol{k}\cdot \boldsymbol{x}-i\omega_l t \right)
 +\sum_{\boldsymbol{k}}{\boldsymbol{\xi }_t}\left( \boldsymbol{k} \right)
-\exp \left( i\boldsymbol{k}\cdot \boldsymbol{x}-i\omega _tt \right)
+\exp \left( i\boldsymbol{k}\cdot \boldsymbol{x}-i\omega_t t \right)
 \]</span></p>
 <p>其中</p>
 <p><span class="math display">\[
@@ -225,8 +225,8 @@ c_t\left| \boldsymbol{k} \right|} \right)
 \]</span></p>
 <p>固体的能谱相应为</p>
 <p><span class="math display">\[
-E\left( \left\{ n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \right\}
-\right) =\hbar \left( \sum_{\boldsymbol{k}}{\left(
+E\left( \{ n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \} \right)
+=\hbar \left( \sum_{\boldsymbol{k}}{\left(
 n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
 \right|}+\sum_{\boldsymbol{k}}{\left( n_{\boldsymbol{k}}^{t}+\frac{1}{2}
 \right) c_t\left| \boldsymbol{k} \right|} \right)
@@ -235,9 +235,9 @@ n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
 可诠释为准粒子的粒子数。</p>
 <p>因此，配分函数按定义写为</p>
 <p><span class="math display">\[
-\mathcal{Z} =\sum_s{\exp \left( -\beta E_s \right) =\sum_{\left\{
-n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \right\}}{\exp \left[
--\beta \hbar \left( \sum_{\boldsymbol{k}}{\left(
+\mathcal{Z} =\sum_s{\exp \left( -\beta E_s \right) =\sum_{\{
+n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \}}{\exp \left[ -\beta
+\hbar \left( \sum_{\boldsymbol{k}}{\left(
 n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
 \right|}+\sum_{\boldsymbol{k}}{\left( n_{\boldsymbol{k}}^{t}+\frac{1}{2}
 \right) c_t\left| \boldsymbol{k} \right|} \right) \right]}}
@@ -245,19 +245,19 @@ n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
 <p>接下来是最关键的一步：<strong>观察上式，我们注意到，在我们做对配分函数求和的时候，各个
 <span class="math inline">\(n_{\boldsymbol{k }}^{l}\)</span> 和 <span
 class="math inline">\(n_{\boldsymbol{k }}^{t}\)</span>
-都是独立的。因此，配分函数里面对 <span class="math inline">\(\left\{
-n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \right\}\)</span>
+都是独立的。因此，配分函数里面对 <span class="math inline">\(\{
+n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \}\)</span>
 的求和，也可以相应拆成对各个 <span
 class="math inline">\(n_{\boldsymbol{k }}^{l}\)</span> 和 <span
 class="math inline">\(n_{\boldsymbol{k }}^{t}\)</span>
 独立求和后再相乘的结果</strong>：</p>
 <p><span class="math display">\[
-\mathcal{Z} =\prod_{\boldsymbol{k}}{\left\{
+\mathcal{Z} =\prod_{\boldsymbol{k}}{\{
 \sum_{n_{\boldsymbol{k}}^{l}=0}^{\infty}{\exp \left[ -\beta \hbar \left(
 n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
 \right| \right]}\cdot \sum_{n_{\boldsymbol{k}}^{t}=0}^{\infty}{\exp
 \left[ -\beta \hbar \left( n_{\boldsymbol{k}}^{t}+\frac{1}{2} \right)
-c_t\left| \boldsymbol{k} \right| \right]} \right\}}
+c_t\left| \boldsymbol{k} \right| \right]} \}}
 \]</span></p>
 <p>这里的每一个求和，都可以被认为是一个“近独立子系”的配分函数 <span
 class="math inline">\(z_{\boldsymbol{k}}\)</span>。这种子系并不是真实的一个粒子实体，而是一种独立的传播模式
@@ -295,7 +295,12 @@ class="math inline">\(\alpha=1\)</span>。</p>
 <p>要一直把横波和纵波两部分分开写的话，形式上显得格外复杂。为了简化，我们把自由能的常数部分（也就是零点能）扔掉不管，后面两项中，在第一个求和号里代换
 $ =c_l | |$，在第二个求和号里代换 <span class="math inline">\(\omega=c_t
 |\boldsymbol{k}|\)</span>，这样我们就把两项求和给合成一项了：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F = kT\sum_&#123;\boldsymbol&#123;\omega &#125;&#125;&#123;\ln \left( 1-\exp \left( -\beta \hbar \omega \right) \right)&#125; = kT\int_&#123;\omega&#125;&#123;\frac&#123;V\omega ^2\mathrm&#123;d&#125;\omega&#125;&#123;2\pi ^2&#125;\left( \frac&#123;1&#125;&#123;&#123;u_l&#125;^3&#125;+\frac&#123;2&#125;&#123;&#123;u_t&#125;^3&#125; \right) \ln \left( 1-\exp \left( -\beta \hbar \omega \right) \right)&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[
+F = kT\sum_{\boldsymbol{\omega }}{\ln \left( 1-\exp \left( -\beta \hbar
+\omega \right) \right)} = kT\int_{\omega}{\frac{V\omega
+^2\mathrm{d}\omega}{2\pi ^2}\left( \frac{1}{u_l^3}+\frac{2}{u_t^3}
+\right) \ln \left( 1-\exp \left( -\beta \hbar \omega \right) \right)}
+\]</span></p>
 <p>接下来的讨论就是熟知的了。</p>
 
     </div>
