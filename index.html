@@ -172,7 +172,16 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-10-23 20:57:52 / Modified: 22:24:57" itemprop="dateCreated datePublished" datetime="2024-10-23T20:57:52-04:00">2024-10-23</time>
+              <time title="Created: 2024-10-23 20:57:52 / Modified: 22:32:34" itemprop="dateCreated datePublished" datetime="2024-10-23T20:57:52-04:00">2024-10-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Coding/" itemprop="url" rel="index"><span itemprop="name">Coding</span></a>
+                </span>
             </span>
 
           
@@ -189,316 +198,14 @@
           <p>持续更新中……（最近一次更新：2024.10.23）</p>
 <h2 id="初始化">初始化</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
-<h2 id="numpy">Numpy</h2>
-<h3 id="函数可直接作用">函数可直接作用</h3>
-<p>内置 <code>list</code> 对象不支持直接作为标量函数的参数。如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define the function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x ** <span class="number">2</span> + <span class="number">2</span> * x + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Original list</span></span><br><span class="line">lst = [<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>, <span class="number">4.0</span>]</span><br><span class="line"></span><br><span class="line">res = f(lst) <span class="comment"># will raise a TypeError</span></span><br></pre></td></tr></table></figure>
-<p>然而 <code>ndarray</code>
-对象支持直接传入标量函数，输出为依次将函数作用于其元素所得结果组成的
-<code>ndarray</code> 对象。如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define a function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span> + <span class="number">2</span>*x + <span class="number">1</span>  <span class="comment"># Example: a quadratic function</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create an ndarray</span></span><br><span class="line">arr = np.array([<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>, <span class="number">4.0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Apply the function element-wise</span></span><br><span class="line">result = f(arr)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment"># Output: [ 4.  9. 16. 25.]</span></span><br></pre></td></tr></table></figure>
-<h3 id="等间隔取点">等间隔取点</h3>
-<p>可使用 <code>np.arange()</code> 或 <code>np.linspace()</code>。</p>
-<ul>
-<li><code>np.arange(start, stop, step)</code>：类似于
-<code>range(start, stop, step)</code>。</li>
-<li><code>np.linspace(start, stop, num=50)</code>：等间隔取
-<code>num</code> 个点。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Range = np.arange(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>) <span class="comment"># [0 2 4 6 8]</span></span><br><span class="line"></span><br><span class="line">Linspace = np.linspace(<span class="number">0</span>, <span class="number">10</span>, num=<span class="number">30</span>) </span><br><span class="line"><span class="comment"># set lower and upper bound of the interval 0 and 10, return evenly spaced numbers</span></span><br></pre></td></tr></table></figure>
-<h3 id="矩阵对角化">矩阵对角化</h3>
-<ul>
-<li>定义矩阵（ndarray 类型）</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">H = np.array([[<span class="number">0</span>, -<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">              [-<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">              [-<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, -<span class="number">1</span>],</span><br><span class="line">              [<span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>]])</span><br></pre></td></tr></table></figure>
-<p>第 m 行 n 列元素为 <code>H[m][n]</code>，从 0 起计数。</p>
-<ul>
-<li>使用 <code>np.linalg</code> (Linear Algebra)
-对角化矩阵，返回矩阵本征值和本征矢量</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">eigenvalues, eigenvectors = np.linalg.eigh(H) </span><br><span class="line"><span class="comment"># returns both eigenvalues and eigenvectors of a Hermitian matrix</span></span><br><span class="line"></span><br><span class="line">eigenvalues, eigenvectors = np.linalg.eig(H) </span><br><span class="line"><span class="comment"># returns both eigenvalues and eigenvectors of any square matrix</span></span><br><span class="line"></span><br><span class="line">Eigenvalues = np.linalg.eigvals(H) </span><br><span class="line"><span class="comment"># returns only the eigenvalues</span></span><br><span class="line"></span><br><span class="line">Eigenvalues = np.linalg.eigvalsh(H) </span><br><span class="line"><span class="comment"># returns the eigenvalues of a Hermitian matrix</span></span><br></pre></td></tr></table></figure>
-<p>对 Hermitian 矩阵，建议使用 <code>np.linalg.eigh()</code> 和
-<code>np.linalg.eigvalsh()</code>。</p>
-<blockquote>
-<p>如果要频繁使用该库，可简化：<code>from numpy import linalg as LA</code>。</p>
-</blockquote>
-<h2 id="matplotlib.pyplot">Matplotlib.pyplot</h2>
-<h3 id="散点图">散点图</h3>
-<p>使用 <code>plt.scatter()</code>。</p>
-<ul>
-<li>基本语法：<code>plt.scatter(x, y)</code>，<code>x</code> 和
-<code>y</code> 为两个 <code>float</code> 或 array-like 对象。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scatter_x = np.arange(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line">func = <span class="keyword">lambda</span> x: x ** <span class="number">2</span></span><br><span class="line">scatter_y = func(scatter_x)</span><br><span class="line"></span><br><span class="line">plt.scatter(scatter_x, scatter_y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>输出： <img src="/images/Fig%201.jpeg" alt="Fig 1" /></p>
-<blockquote>
-<p>欲保存图片，使用 <code>plt.savefig()</code>：
-<code>plt.savefig("Fig 1.jpeg", format="jpeg")</code></p>
-</blockquote>
-<ul>
-<li>参数调节：
-<ul>
-<li><code>s</code>：点的大小。</li>
-<li><code>c</code>：点的颜色。</li>
-<li><code>marker</code>：点的形状，见下表。</li>
-<li><code>cmap</code>：<code>colormap</code>，按数值给点赋不同颜色。常用的有
-<code>'viridis', 'plasma', 'inferno', 'magma', 'cividis'</code>。</li>
-<li><code>linewidths</code>：点的边界线宽度。</li>
-<li><code>edgecolors</code>：点的边界线颜色。</li>
-</ul></li>
-</ul>
-<table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 6%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr>
-<th>Marker</th>
-<th>Symbol</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>"."</td>
-<td>m00</td>
-<td>point</td>
-</tr>
-<tr>
-<td>","</td>
-<td>m01</td>
-<td>pixel</td>
-</tr>
-<tr>
-<td>"o"</td>
-<td>m02</td>
-<td>circle</td>
-</tr>
-<tr>
-<td>"v"</td>
-<td>m03</td>
-<td>triangle_down</td>
-</tr>
-<tr>
-<td>"^"</td>
-<td>m04</td>
-<td>triangle_up</td>
-</tr>
-<tr>
-<td>"&lt;"</td>
-<td>m05</td>
-<td>triangle_left</td>
-</tr>
-<tr>
-<td>"&gt;"</td>
-<td>m06</td>
-<td>triangle_right</td>
-</tr>
-<tr>
-<td>"1"</td>
-<td>m07</td>
-<td>tri_down</td>
-</tr>
-<tr>
-<td>"2"</td>
-<td>m08</td>
-<td>tri_up</td>
-</tr>
-<tr>
-<td>"3"</td>
-<td>m09</td>
-<td>tri_left</td>
-</tr>
-<tr>
-<td>"4"</td>
-<td>m10</td>
-<td>tri_right</td>
-</tr>
-<tr>
-<td>"8"</td>
-<td>m11</td>
-<td>octagon</td>
-</tr>
-<tr>
-<td>"s"</td>
-<td>m12</td>
-<td>square</td>
-</tr>
-<tr>
-<td>"p"</td>
-<td>m13</td>
-<td>pentagon</td>
-</tr>
-<tr>
-<td>"P"</td>
-<td>m23</td>
-<td>plus (filled)</td>
-</tr>
-<tr>
-<td>"*"</td>
-<td>m14</td>
-<td>star</td>
-</tr>
-<tr>
-<td>"h"</td>
-<td>m15</td>
-<td>hexagon1</td>
-</tr>
-<tr>
-<td>"H"</td>
-<td>m16</td>
-<td>hexagon2</td>
-</tr>
-<tr>
-<td>"+"</td>
-<td>m17</td>
-<td>plus</td>
-</tr>
-<tr>
-<td>"x"</td>
-<td>m18</td>
-<td>x</td>
-</tr>
-<tr>
-<td>"X"</td>
-<td>m24</td>
-<td>x (filled)</td>
-</tr>
-<tr>
-<td>"D"</td>
-<td>m19</td>
-<td>diamond</td>
-</tr>
-<tr>
-<td>"d"</td>
-<td>m20</td>
-<td>thin_diamond</td>
-</tr>
-<tr>
-<td>"|"</td>
-<td>m21</td>
-<td>vline</td>
-</tr>
-<tr>
-<td>"_"</td>
-<td>m22</td>
-<td>hline</td>
-</tr>
-<tr>
-<td>0 (TICKLEFT)</td>
-<td>m25</td>
-<td>tickleft</td>
-</tr>
-<tr>
-<td>1 (TICKRIGHT)</td>
-<td>m26</td>
-<td>tickright</td>
-</tr>
-<tr>
-<td>2 (TICKUP)</td>
-<td>m27</td>
-<td>tickup</td>
-</tr>
-<tr>
-<td>3 (TICKDOWN)</td>
-<td>m28</td>
-<td>tickdown</td>
-</tr>
-<tr>
-<td>4 (CARETLEFT)</td>
-<td>m29</td>
-<td>caretleft</td>
-</tr>
-<tr>
-<td>5 (CARETRIGHT)</td>
-<td>m30</td>
-<td>caretright</td>
-</tr>
-<tr>
-<td>6 (CARETUP)</td>
-<td>m31</td>
-<td>caretup</td>
-</tr>
-<tr>
-<td>7 (CARETDOWN)</td>
-<td>m32</td>
-<td>caretdown</td>
-</tr>
-<tr>
-<td>8 (CARETLEFTBASE)</td>
-<td>m33</td>
-<td>caretleft (centered at base)</td>
-</tr>
-<tr>
-<td>9 (CARETRIGHTBASE)</td>
-<td>m34</td>
-<td>caretright (centered at base)</td>
-</tr>
-<tr>
-<td>10 (CARETUPBASE)</td>
-<td>m35</td>
-<td>caretup (centered at base)</td>
-</tr>
-<tr>
-<td>11 (CARETDOWNBASE)</td>
-<td>m36</td>
-<td>caretdown (centered at base)</td>
-</tr>
-<tr>
-<td>"none" or "None"</td>
-<td></td>
-<td>nothing</td>
-</tr>
-<tr>
-<td>" " or ""</td>
-<td></td>
-<td>nothing</td>
-</tr>
-<tr>
-<td>"<span class="math inline">\(...\)</span>"</td>
-<td>m37</td>
-<td>Render the string using mathtext. E.g., "<span
-class="math inline">\(f\)</span>" for marker showing the letter f.</td>
-</tr>
-<tr>
-<td>verts</td>
-<td></td>
-<td>A list of (x, y) pairs used for Path vertices. The center is at (0,
-0), normalized to a unit cell.</td>
-</tr>
-<tr>
-<td>path</td>
-<td></td>
-<td>A Path instance.</td>
-</tr>
-<tr>
-<td>(numsides, 0, angle)</td>
-<td></td>
-<td>A regular polygon with numsides sides, rotated by angle.</td>
-</tr>
-<tr>
-<td>(numsides, 1, angle)</td>
-<td></td>
-<td>A star-like symbol with numsides sides, rotated by angle.</td>
-</tr>
-<tr>
-<td>(numsides, 2, angle)</td>
-<td></td>
-<td>An asterisk with numsides sides, rotated by angle.</td>
-</tr>
-</tbody>
-</table>
-<p>下面展示了 3 个例子。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(</span><br><span class="line">    scatter_x, scatter_y,</span><br><span class="line">    s=<span class="number">20</span>, c=<span class="string">&#x27;red&#x27;</span>, marker=<span class="string">&#x27;s&#x27;</span>, </span><br><span class="line">    edgecolors=<span class="string">&#x27;green&#x27;</span>, linewidths=<span class="number">0.5</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>输出： <img src="/images/Fig%202.jpeg" alt="Fig 2" /></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(</span><br><span class="line">    scatter_x, scatter_y,</span><br><span class="line">    s=<span class="number">30</span>, c=scatter_y, </span><br><span class="line">    marker=<span class="string">&#x27;+&#x27;</span>, cmap=<span class="string">&#x27;plasma&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>输出： <img src="/images/Fig%203.jpeg" alt="Fig 3" /></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(</span><br><span class="line">    scatter_x, scatter_y,</span><br><span class="line">    s=<span class="number">20</span>, color=<span class="string">&#x27;white&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>, </span><br><span class="line">    edgecolors=<span class="string">&#x27;green&#x27;</span>, linewidths=<span class="number">1</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>输出： <img src="/images/Fig%204.jpeg" alt="Fig 4" /></p>
-<p><em>(to be continued...)</em></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/23/Numpy-Scipy-Matplotlib-%E5%AE%9E%E7%94%A8%E6%80%BB%E7%BB%93/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -542,7 +249,7 @@ class="math inline">\(f\)</span>" for marker showing the letter f.</td>
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-10-23 00:59:44 / Modified: 01:23:02" itemprop="dateCreated datePublished" datetime="2024-10-23T00:59:44-04:00">2024-10-23</time>
+              <time title="Created: 2024-10-23 00:59:44 / Modified: 22:33:17" itemprop="dateCreated datePublished" datetime="2024-10-23T00:59:44-04:00">2024-10-23</time>
             </span>
 
           
@@ -556,11 +263,8 @@ class="math inline">\(f\)</span>" for marker showing the letter f.</td>
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>突发奇想的创作。</p>
-<figure>
-<img src="/images/1.png" alt="bouta ... save the world?" />
-<figcaption aria-hidden="true">bouta ... save the world?</figcaption>
-</figure>
+          <p>突发奇想的创作。 <img src="/images/1.png"
+alt="bouta ... save the world?" /></p>
 
       
     </div>
@@ -603,10 +307,16 @@ class="math inline">\(f\)</span>" for marker showing the letter f.</td>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-10-18 16:29:11 / Modified: 17:16:28" itemprop="dateCreated datePublished" datetime="2024-10-18T16:29:11-04:00">2024-10-18</time>
+              <time title="Created: 2024-10-18 16:29:11" itemprop="dateCreated datePublished" datetime="2024-10-18T16:29:11-04:00">2024-10-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-10-23 22:33:00" itemprop="dateModified" datetime="2024-10-23T22:33:00-04:00">2024-10-23</time>
+              </span>
 
           
 
@@ -621,122 +331,14 @@ class="math inline">\(f\)</span>" for marker showing the letter f.</td>
       
           <h2 id="debye-的固体">Debye 的固体</h2>
 <p>固体里面可以传递声波，这种声波就是原子在其平衡位置附近的小振动。如果这种振动的特征波长远大于原子间距，就可以把它看成是连续化的。</p>
-<p>在一个各向同性的固体里面，声波可以有两种形式：一种是横波，一种是纵波。用
-<span class="math inline">\(\boldsymbol\xi (\boldsymbol x,t)\)</span>
-来表示 <span class="math inline">\((\boldsymbol{x},t)\)</span>
-处原子相对平衡位置的移动，微观上的波动方程给我们</p>
-<p><span class="math display">\[
-\dfrac{\partial^2 \boldsymbol{\xi}}{\partial t^2}-c^2\nabla^2
-\boldsymbol{\xi}=0
-\]</span></p>
-<p>纵波 <span class="math inline">\(c=c_l\)</span>，横波 <span
-class="math inline">\(c=c_t\)</span>。原子的一般运动可以写作</p>
-<p><span class="math display">\[
-\boldsymbol{\xi }\left( \boldsymbol{x},t \right)
-=\sum_{\boldsymbol{k}}{\boldsymbol{\xi }_l}\left( \boldsymbol{k} \right)
-\exp \left( i\boldsymbol{k}\cdot \boldsymbol{x}-i\omega_l t \right)
-+\sum_{\boldsymbol{k}}{\boldsymbol{\xi }_t}\left( \boldsymbol{k} \right)
-\exp \left( i\boldsymbol{k}\cdot \boldsymbol{x}-i\omega_t t \right)
-\]</span></p>
-<p>其中</p>
-<p><span class="math display">\[
-\boldsymbol{\xi }_l\left( \boldsymbol{k} \right) =A_l\left(
-\boldsymbol{k} \right) \hat{\boldsymbol{e}}_{\boldsymbol{k}},\
-\  \boldsymbol{\xi }_t\left( \boldsymbol{k} \right)
-=\hat{\boldsymbol{e}}_{\boldsymbol{k}}\times \boldsymbol{A}_t\left(
-\boldsymbol{k} \right)
-\]</span></p>
-<p>这一步操作，相当于把我们从实空间变到动量空间。我们预期量子化后的哈密顿量会形如下式：</p>
-<p><span class="math display">\[
-\mathcal{H} =\hbar \left( \sum_{\boldsymbol{k}}{\left(
-a_{\boldsymbol{k}}^{l\dagger}a_{\boldsymbol{k}}^{l}+\frac{1}{2} \right)
-c_l\left| \boldsymbol{k} \right|}+\sum_{\boldsymbol{k}}{\left(
-a_{\boldsymbol{k}}^{t\dagger}a_{\boldsymbol{k}}^{t}+\frac{1}{2} \right)
-c_t\left| \boldsymbol{k} \right|} \right)
-\]</span></p>
-<p>固体的能谱相应为</p>
-<p><span class="math display">\[
-E\left( \{ n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \} \right)
-=\hbar \left( \sum_{\boldsymbol{k}}{\left(
-n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
-\right|}+\sum_{\boldsymbol{k}}{\left( n_{\boldsymbol{k}}^{t}+\frac{1}{2}
-\right) c_t\left| \boldsymbol{k} \right|} \right)
-\]</span></p>
-<p>这里的 <span
-class="math inline">\(n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t}=0,1,2,\ldots\)</span>
-可诠释为准粒子的粒子数。</p>
-<p>因此，配分函数按定义写为</p>
-<p><span class="math display">\[
-\mathcal{Z} =\sum_s{\exp \left( -\beta E_s \right) =\sum_{\{
-n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \}}{\exp \left[ -\beta
-\hbar \left( \sum_{\boldsymbol{k}}{\left(
-n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
-\right|}+\sum_{\boldsymbol{k}}{\left( n_{\boldsymbol{k}}^{t}+\frac{1}{2}
-\right) c_t\left| \boldsymbol{k} \right|} \right) \right]}}
-\]</span></p>
-<p>接下来是最关键的一步：<strong>观察上式，我们注意到，在我们做对配分函数求和的时候，各个
-<span class="math inline">\(n_{\boldsymbol{k }}^{l}\)</span> 和 <span
-class="math inline">\(n_{\boldsymbol{k }}^{t}\)</span>
-都是独立的。因此，配分函数里面对 <span class="math inline">\(\{
-n_{\boldsymbol{k}}^{l},n_{\boldsymbol{k}}^{t} \}\)</span>
-的求和，也可以相应拆成对各个 <span
-class="math inline">\(n_{\boldsymbol{k }}^{l}\)</span> 和 <span
-class="math inline">\(n_{\boldsymbol{k }}^{t}\)</span>
-独立求和后再相乘的结果</strong>：</p>
-<p><span class="math display">\[
-\mathcal{Z} =\prod_{\boldsymbol{k}}{\{
-\sum_{n_{\boldsymbol{k}}^{l}=0}^{\infty}{\exp \left[ -\beta \hbar \left(
-n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
-\right| \right]}\cdot \sum_{n_{\boldsymbol{k}}^{t}=0}^{\infty}{\exp
-\left[ -\beta \hbar \left( n_{\boldsymbol{k}}^{t}+\frac{1}{2} \right)
-c_t\left| \boldsymbol{k} \right| \right]} \}}
-\]</span></p>
-<p>这里的每一个求和，都可以被认为是一个“近独立子系”的配分函数 <span
-class="math inline">\(z_{\boldsymbol{k}}\)</span>。这种子系并不是真实的一个粒子实体，而是一种独立的传播模式
-<span class="math inline">\(\boldsymbol{k}^{(l)}\)</span> 或 <span
-class="math inline">\(\boldsymbol{k}^{(t)}\)</span>。它们之所以可以被视为近独立子系，本质上是因为在配分函数里它们没有耦合在一起。值得指出的是，这里的每个近独立子系并不是相同的，它们对应各种不同波矢的不同传播方式（横波/纵波）。因此，我们通常熟知的公式（<span
-class="math inline">\(\mathcal{Z}=z^N\)</span>）是不可以使用的，因为在这个公式的推导过程中，暗示了每个近独立子系的配分函数完全相同。</p>
-<p>每一项独立求和的结果为</p>
-<p><span class="math display">\[
-\sum_{n_{\boldsymbol{k}}^{l}=0}^{\infty}{\exp \left[ -\beta \hbar \left(
-n_{\boldsymbol{k}}^{l}+\frac{1}{2} \right) c_l\left| \boldsymbol{k}
-\right| \right]}=\frac{\exp \left( -\beta \hbar c_l\left| \boldsymbol{k}
-\right|/2 \right)}{1-\exp \left( -\beta \hbar c_l\left| \boldsymbol{k}
-\right| \right)}
-\]</span></p>
-<p>自由能，作为配分函数的负对数，相应可以写成</p>
-<p><span class="math display">\[
-F=-kT\ln \mathcal{Z} =\sum_{\boldsymbol{k}}{\frac{\hbar c_l\left|
-\boldsymbol{k} \right|}{2}}+\sum_{\boldsymbol{k}}{\frac{\hbar c_t\left|
-\boldsymbol{k} \right|}{2}}+kT\sum_{\boldsymbol{k}}{\ln \left( 1-\exp
-\left( -\beta \hbar c_l\left| \boldsymbol{k} \right| \right)
-\right)}+kT\sum_{\boldsymbol{k}}{\ln \left( 1-\exp \left( -\beta \hbar
-c_t\left| \boldsymbol{k} \right| \right) \right)}
-\]</span></p>
-<p>而且，原先对 <span class="math inline">\(\boldsymbol{k}\)</span>
-的求和可以连续化为积分：</p>
-<p><span class="math display">\[
-\sum_{\boldsymbol{k}}{}=\alpha
-V\int_{\boldsymbol{k}}{\frac{d^3\boldsymbol{k}}{\left( 2\pi \right) ^3}}
-= \alpha V\int_{\boldsymbol{k}}{\frac{4\pi k^2 dk}{\left( 2\pi \right)
-^3}}
-\]</span></p>
-<p>对于横波，<span
-class="math inline">\(\alpha=2\)</span>；对于纵波，<span
-class="math inline">\(\alpha=1\)</span>。</p>
-<p>要一直把横波和纵波两部分分开写的话，形式上显得格外复杂。为了简化，我们把自由能的常数部分（也就是零点能）扔掉不管，后面两项中，在第一个求和号里代换
-<span class="math inline">\(\omega=c_l
-|\boldsymbol{k}|\)</span>，在第二个求和号里代换 <span
-class="math inline">\(\omega=c_t
-|\boldsymbol{k}|\)</span>，这样我们就把两项求和给合成一项了：</p>
-<p><span class="math display">\[
-F = kT\sum_{\boldsymbol{\omega }}{\ln \left( 1-\exp \left( -\beta \hbar
-\omega \right) \right)} = kT\int_{\omega}{\frac{V\omega
-^2\mathrm{d}\omega}{2\pi ^2}\left( \frac{1}{u_l^3}+\frac{2}{u_t^3}
-\right) \ln \left( 1-\exp \left( -\beta \hbar \omega \right) \right)}
-\]</span></p>
-<p>接下来的讨论就是熟知的了。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/18/Debye's%20Model%20of%20Solids/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -901,8 +503,12 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-      <div class="site-state-item site-state-tags">
+      <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
