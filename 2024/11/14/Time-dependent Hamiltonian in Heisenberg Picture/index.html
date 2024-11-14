@@ -28,7 +28,7 @@
 <meta property="og:description" content="The Heisenberg Hamiltonian \[ \hat{H}_H\left(t,t_0\right)&#x3D;U^\dagger \left(t,t_0\right) \hat{H}_S\left(t\right) U(t,t_0) \] We&#39;ll prove the following Theorem. Statement of the Theorem \[ \hat{H}_H\left">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-11-14T16:28:06.000Z">
-<meta property="article:modified_time" content="2024-11-14T16:30:37.303Z">
+<meta property="article:modified_time" content="2024-11-14T16:39:15.499Z">
 <meta property="article:author" content="Bowen Yu">
 <meta property="article:tag" content="Physics">
 <meta name="twitter:card" content="summary">
@@ -177,7 +177,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-11-14 11:28:06 / Modified: 11:30:37" itemprop="dateCreated datePublished" datetime="2024-11-14T11:28:06-05:00">2024-11-14</time>
+              <time title="Created: 2024-11-14 11:28:06 / Modified: 11:39:15" itemprop="dateCreated datePublished" datetime="2024-11-14T11:28:06-05:00">2024-11-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -209,7 +209,7 @@
 <h2 id="statement-of-the-theorem">Statement of the Theorem</h2>
 <p><span class="math display">\[
 \hat{H}_H\left(t,t_0\right)=\hat{H}_S\left(t\right) +
-\sum_{n=1}^{\infin} \left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_1
+\sum_{n=1}^{\infty} \left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_1
 \int_{t_0}^{t_1}dt_2  \cdots \int_{t_0}^{t_{n-1}}dt_n \
 \hat{C}_n\left(t,t_1,t_2,\cdots,t_n\right)
 \]</span></p>
@@ -226,6 +226,7 @@
 \left[\hat{C}_{n-1}\left(t,t_1,t_2,\cdots,t_{n-1}\right),\hat{H}_S\left(t_n\right)
 \right]
 \]</span></p>
+<span id="more"></span>
 <p>To deal with the problem, we first sketch the proofs of several
 lemmas.</p>
 <h2 id="lemma-1">Lemma 1</h2>
@@ -257,10 +258,10 @@ t_2 \leq t, \ t_2 \leq t_1\}\)</span>.</p>
 <p><span class="math display">\[
 \begin{align*}
     &amp; \int_{t_0}^{t}dt_1 \int_{t_0}^{t_1}dt_2  \cdots
-\int_{t_0}^{t_{n-1}}dt_n \int_{t_0}^{t_{n}}dt_{n+1}\\ =&amp; \blue
+\int_{t_0}^{t_{n-1}}dt_n \int_{t_0}^{t_{n}}dt_{n+1}\\ =&amp; \boxed
 {\int_{t_0}^{t}dt_1 \int_{t_0}^{t_1}dt_{n+1}}
 \int_{t_{n+1}}^{t_1}dt_n  \cdots \int_{t_3}^{t}dt_2
-    \\ =&amp; \int_{t_0}^{t}dt_{n+1} \blue{ \int_{t_{n+1}}^{t}dt_{1}
+    \\ =&amp; \int_{t_0}^{t}dt_{n+1} \boxed{ \int_{t_{n+1}}^{t}dt_{1}
 \int_{t_{n+1}}^{t_1}dt_n } \cdots \int_{t_3}^{t}dt_2
     \\ =&amp; \cdots
     \\ =&amp; \int_{t_0}^{t}dt_{n+1} \int_{t_{n+1}}^{t}dt_{n}  \cdots
@@ -278,7 +279,7 @@ U\left(t, t_0\right) H_S (t_0)
 <h3 id="proof-of-lemma-2">Proof of Lemma 2</h3>
 <p><em>Proof:</em> From</p>
 <p><span class="math display">\[
-U\left(t, t_0\right) = \mathbb{1} + \sum_{n=1}^{\infin}
+U\left(t, t_0\right) = \mathbb{1} + \sum_{n=1}^{\infty}
 \left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_1 H_S(t_1)
 \int_{t_0}^{t_1}dt_2 H_S(t_2) \cdots \int_{t_0}^{t_{n-1}}dt_n H_S(t_n)
 \]</span></p>
@@ -307,7 +308,7 @@ class="math inline">\(\Box\)</span></p>
 <h3 id="statement-of-lemma-4">Statement of Lemma 4</h3>
 <p>Let</p>
 <p><span class="math display">\[
-f(t,t_0) = \hat{H}_S\left(t\right) + \sum_{n=1}^{\infin}
+f(t,t_0) = \hat{H}_S\left(t\right) + \sum_{n=1}^{\infty}
 \left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_1
 \int_{t_0}^{t_1}dt_2  \cdots \int_{t_0}^{t_{n-1}}dt_n \
 \hat{C}_n\left(t,t_1,t_2,\cdots,t_n\right)
@@ -320,14 +321,14 @@ f(t,t_0) = \hat{H}_S\left(t\right) + \sum_{n=1}^{\infin}
 <h3 id="proof-of-lemma-4">Proof of Lemma 4</h3>
 <p><em>Proof:</em> From Lemma 1,</p>
 <p><span class="math display">\[
-f(t,t_0) = \hat{H}_S\left(t\right) + \sum_{n=1}^{\infin}
+f(t,t_0) = \hat{H}_S\left(t\right) + \sum_{n=1}^{\infty}
 \left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_n
 \int_{t_{n}}^{t}dt_{n-1}  \cdots \int_{t_2}^{t}dt_1 \
 \hat{C}_n\left(t,t_1,t_2,\cdots,t_n\right)
 \]</span></p>
 <p>Therefore,</p>
 <p><span class="math display">\[
-\frac{\partial}{\partial t_0} f(t,t_0) = - \sum_{n=1}^{\infin}
+\frac{\partial}{\partial t_0} f(t,t_0) = - \sum_{n=1}^{\infty}
 \left(-\frac{i}{\hbar}\right)^n \int_{t_{n}}^{t}dt_{n-1}  \cdots
 \int_{t_2}^{t}dt_1 \ \hat{C}_n\left(t,t_1,t_2,\cdots,t_{n-1},t_0\right)
 \]</span></p>
@@ -345,7 +346,7 @@ f(t,t_0) = \hat{H}_S\left(t\right) + \sum_{n=1}^{\infin}
 <p><span class="math display">\[
 \begin{align*}
     \frac{\partial}{\partial t_0} f(t,t_0) &amp;= \frac{i}{\hbar}
-\sum_{n=1}^{\infin} \left(-\frac{i}{\hbar}\right)^{n-1}
+\sum_{n=1}^{\infty} \left(-\frac{i}{\hbar}\right)^{n-1}
 \int_{t_{n}}^{t}dt_{n-1}  \cdots \int_{t_2}^{t}dt_1 \
 \left[\hat{C}_{n-1}\left(t,t_1,t_2,\cdots,t_{n-1}\right),\hat{H}_S\left(t_0\right)
 \right] \\

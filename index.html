@@ -172,7 +172,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-11-14 11:28:06 / Modified: 11:30:37" itemprop="dateCreated datePublished" datetime="2024-11-14T11:28:06-05:00">2024-11-14</time>
+              <time title="Created: 2024-11-14 11:28:06 / Modified: 11:39:15" itemprop="dateCreated datePublished" datetime="2024-11-14T11:28:06-05:00">2024-11-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -204,7 +204,7 @@
 <h2 id="statement-of-the-theorem">Statement of the Theorem</h2>
 <p><span class="math display">\[
 \hat{H}_H\left(t,t_0\right)=\hat{H}_S\left(t\right) +
-\sum_{n=1}^{\infin} \left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_1
+\sum_{n=1}^{\infty} \left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_1
 \int_{t_0}^{t_1}dt_2  \cdots \int_{t_0}^{t_{n-1}}dt_n \
 \hat{C}_n\left(t,t_1,t_2,\cdots,t_n\right)
 \]</span></p>
@@ -221,162 +221,14 @@
 \left[\hat{C}_{n-1}\left(t,t_1,t_2,\cdots,t_{n-1}\right),\hat{H}_S\left(t_n\right)
 \right]
 \]</span></p>
-<p>To deal with the problem, we first sketch the proofs of several
-lemmas.</p>
-<h2 id="lemma-1">Lemma 1</h2>
-<h3 id="statement-of-lemma-1">Statement of Lemma 1</h3>
-<p><span class="math display">\[
-\int_{t_0}^{t}dt_1 \int_{t_0}^{t_1}dt_2  \cdots \int_{t_0}^{t_{n-1}}dt_n
-= \int_{t_0}^{t}dt_n \int_{t_{n}}^{t}dt_{n-1}  \cdots \int_{t_2}^{t}dt_1
-\]</span></p>
-<h3 id="proof-of-lemma-1">Proof of Lemma 1</h3>
-<p><em>Proof:</em> By induction.</p>
-<ul>
-<li>Starting point:</li>
-</ul>
-<p><span class="math display">\[
-\int_{t_0}^{t}dt_1 \int_{t_0}^{t_1}dt_2 = \int_{t_0}^{t}dt_2
-\int_{t_2}^{t}dt_{1}
-\]</span></p>
-<p>where LHS and RHS both correspond to the integration over <span
-class="math inline">\(D=\{(t_1,t_2)\ | \ t_0\leq t_1 \leq t,\ t_0\leq
-t_2 \leq t, \ t_2 \leq t_1\}\)</span>.</p>
-<ul>
-<li>Induction: suppose we already have</li>
-</ul>
-<p><span class="math display">\[
-\int_{t_0}^{t}dt_1 \int_{t_0}^{t_1}dt_2  \cdots \int_{t_0}^{t_{n-1}}dt_n
-= \int_{t_0}^{t}dt_n \int_{t_{n}}^{t}dt_{n-1}  \cdots \int_{t_2}^{t}dt_1
-\]</span></p>
-<p>Then</p>
-<p><span class="math display">\[
-\begin{align*}
-    &amp; \int_{t_0}^{t}dt_1 \int_{t_0}^{t_1}dt_2  \cdots
-\int_{t_0}^{t_{n-1}}dt_n \int_{t_0}^{t_{n}}dt_{n+1}\\ =&amp; \blue
-{\int_{t_0}^{t}dt_1 \int_{t_0}^{t_1}dt_{n+1}}
-\int_{t_{n+1}}^{t_1}dt_n  \cdots \int_{t_3}^{t}dt_2
-    \\ =&amp; \int_{t_0}^{t}dt_{n+1} \blue{ \int_{t_{n+1}}^{t}dt_{1}
-\int_{t_{n+1}}^{t_1}dt_n } \cdots \int_{t_3}^{t}dt_2
-    \\ =&amp; \cdots
-    \\ =&amp; \int_{t_0}^{t}dt_{n+1} \int_{t_{n+1}}^{t}dt_{n}  \cdots
-\int_{t_3}^{t}dt_2  \int_{t_2}^{t}dt_1
-\end{align*}
-\]</span></p>
-<p>which wraps up our proof of Lemma 1. <span
-class="math inline">\(\Box\)</span></p>
-<h2 id="lemma-2">Lemma 2</h2>
-<h3 id="statement-of-lemma-2">Statement of Lemma 2</h3>
-<p><span class="math display">\[
-\frac{\partial}{\partial t_0} U\left(t, t_0\right) = \frac{i}{\hbar}
-U\left(t, t_0\right) H_S (t_0)
-\]</span></p>
-<h3 id="proof-of-lemma-2">Proof of Lemma 2</h3>
-<p><em>Proof:</em> From</p>
-<p><span class="math display">\[
-U\left(t, t_0\right) = \mathbb{1} + \sum_{n=1}^{\infin}
-\left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_1 H_S(t_1)
-\int_{t_0}^{t_1}dt_2 H_S(t_2) \cdots \int_{t_0}^{t_{n-1}}dt_n H_S(t_n)
-\]</span></p>
-<p>This is not hard to prove. (details omitted) <span
-class="math inline">\(\Box\)</span></p>
-<h2 id="lemma-3">Lemma 3</h2>
-<h3 id="statement-of-lemma-3">Statement of Lemma 3</h3>
-<p><span class="math display">\[
-\frac{\partial}{\partial t_0} H_H\left(t, t_0\right) = \frac{i}{\hbar}
-\left[H_H\left(t, t_0\right), H_S (t_0)\right]
-\]</span></p>
-<h3 id="proof-of-lemma-3">Proof of Lemma 3</h3>
-<p><span class="math display">\[
-\frac{\partial}{\partial t_0} H_H\left(t, t_0\right) =
-\left(\frac{\partial}{\partial t_0}U^\dagger \left(t,t_0\right) \right)
-\hat{H}_S\left(t\right) U(t,t_0) +  U^\dagger(t,t_0)
-\hat{H}_S\left(t\right) \left(\frac{\partial}{\partial t_0}U
-\left(t,t_0\right)\right)
-\]</span></p>
-<p>From Lemma 2, <span class="math inline">\(\frac{\partial}{\partial
-t_0} U^\dagger\left(t, t_0\right) = -\frac{i}{\hbar} H_S (t_0)
-U^\dagger\left(t, t_0\right)\)</span>. Substitute them back to the
-previous equation, we finish the proof of Lemma 3. <span
-class="math inline">\(\Box\)</span></p>
-<h2 id="lemma-4">Lemma 4</h2>
-<h3 id="statement-of-lemma-4">Statement of Lemma 4</h3>
-<p>Let</p>
-<p><span class="math display">\[
-f(t,t_0) = \hat{H}_S\left(t\right) + \sum_{n=1}^{\infin}
-\left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_1
-\int_{t_0}^{t_1}dt_2  \cdots \int_{t_0}^{t_{n-1}}dt_n \
-\hat{C}_n\left(t,t_1,t_2,\cdots,t_n\right)
-\]</span></p>
-<p>We have</p>
-<p><span class="math display">\[
-\frac{\partial}{\partial t_0} f\left(t, t_0\right) = \frac{i}{\hbar}
-\left[f\left(t, t_0\right), H_S (t_0)\right]
-\]</span></p>
-<h3 id="proof-of-lemma-4">Proof of Lemma 4</h3>
-<p><em>Proof:</em> From Lemma 1,</p>
-<p><span class="math display">\[
-f(t,t_0) = \hat{H}_S\left(t\right) + \sum_{n=1}^{\infin}
-\left(-\frac{i}{\hbar}\right)^n \int_{t_0}^{t}dt_n
-\int_{t_{n}}^{t}dt_{n-1}  \cdots \int_{t_2}^{t}dt_1 \
-\hat{C}_n\left(t,t_1,t_2,\cdots,t_n\right)
-\]</span></p>
-<p>Therefore,</p>
-<p><span class="math display">\[
-\frac{\partial}{\partial t_0} f(t,t_0) = - \sum_{n=1}^{\infin}
-\left(-\frac{i}{\hbar}\right)^n \int_{t_{n}}^{t}dt_{n-1}  \cdots
-\int_{t_2}^{t}dt_1 \ \hat{C}_n\left(t,t_1,t_2,\cdots,t_{n-1},t_0\right)
-\]</span></p>
-<p>Rewrite</p>
-<p><span class="math display">\[
-\hat{C}_n\left(t,t_1,t_2,\cdots,t_{n-1}, t_0\right) =
-\left[\hat{C}_{n-1}\left(t,t_1,t_2,\cdots,t_{n-1}\right),\hat{H}_S\left(t_0\right)
-\right]
-\]</span></p>
-<p>and notice</p>
-<p><span class="math display">\[
-\hat{C}_0\left(t\right) = \hat{H}_S\left(t\right)
-\]</span></p>
-<p>we get</p>
-<p><span class="math display">\[
-\begin{align*}
-    \frac{\partial}{\partial t_0} f(t,t_0) &amp;= \frac{i}{\hbar}
-\sum_{n=1}^{\infin} \left(-\frac{i}{\hbar}\right)^{n-1}
-\int_{t_{n}}^{t}dt_{n-1}  \cdots \int_{t_2}^{t}dt_1 \
-\left[\hat{C}_{n-1}\left(t,t_1,t_2,\cdots,t_{n-1}\right),\hat{H}_S\left(t_0\right)
-\right] \\
-    &amp;=\frac{i}{\hbar} \left[f\left(t, t_0\right), H_S (t_0)\right]
-\end{align*}
-\]</span></p>
-<p>This finishes our proof of Lemma 4. <span
-class="math inline">\(\Box\)</span></p>
-<h2 id="proof-of-the-theorem">Proof of the Theorem</h2>
-<p>Now we get back to the desired theorem.</p>
-<p><em>Proof of the Theorem:</em></p>
-<p>From Lemma 3 and Lemma 4,</p>
-<p><span class="math display">\[
-\frac{\partial}{\partial t_0} H_H\left(t, t_0\right) = \frac{i}{\hbar}
-\left[H_H\left(t, t_0\right), H_S (t_0)\right]
-\]</span></p>
-<p><span class="math display">\[
-\frac{\partial}{\partial t_0} f\left(t, t_0\right) = \frac{i}{\hbar}
-\left[f\left(t, t_0\right), H_S (t_0)\right]
-\]</span></p>
-<p>which means <span class="math inline">\(H_H\left(t,
-t_0\right)\)</span> and <span class="math inline">\(f\left(t,
-t_0\right)\)</span> satisfies the same differential equation.</p>
-<p>On the other hand,</p>
-<p><span class="math display">\[
-H_H\left(t, t_0=t\right) = f\left(t, t_0=t\right) = H_S(t)
-\]</span></p>
-<p>which means they share the same initial condition.</p>
-<p>Thus, for any <span class="math inline">\(t_0&lt;t\)</span>, we
-have</p>
-<p><span class="math display">\[
-H_H\left(t, t_0\right) = f\left(t, t_0\right)
-\]</span></p>
-<p>This marks the end of our proof. <span
-class="math inline">\(\Box\)</span></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/14/Time-dependent%20Hamiltonian%20in%20Heisenberg%20Picture/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -563,8 +415,17 @@ alt="bouta ... save the world?" /></p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-10-23 22:33:00" itemprop="dateModified" datetime="2024-10-23T22:33:00-04:00">2024-10-23</time>
+                <time title="Modified: 2024-11-14 11:40:15" itemprop="dateModified" datetime="2024-11-14T11:40:15-05:00">2024-11-14</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Physics/" itemprop="url" rel="index"><span itemprop="name">Physics</span></a>
+                </span>
+            </span>
 
           
 
