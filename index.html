@@ -157,6 +157,356 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://f-fish.github.io/2024/12/28/%E9%9D%9E%E5%B9%B3%E8%A1%A1%E7%83%AD%E5%8A%9B%E5%AD%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bowen Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bowen's Homepage">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/12/28/%E9%9D%9E%E5%B9%B3%E8%A1%A1%E7%83%AD%E5%8A%9B%E5%AD%A6/" class="post-title-link" itemprop="url">关于热力学第二定律和非平衡热力学的一个小「佯谬」</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-12-28 23:18:00 / Modified: 23:18:06" itemprop="dateCreated datePublished" datetime="2024-12-28T23:18:00-05:00">2024-12-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Physics/" itemprop="url" rel="index"><span itemprop="name">Physics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近有同学向我提出了关于热力学第二定律和非平衡热力学的一个「佯谬」。具体而言，该佯谬试图推翻局域平衡近似中对热力学基本方程的应用，其错误虽具有迷惑性却又十分触及热力学本质。由于大部分时间我们会更熟悉在平衡态下讨论，因此非平衡态的一些微妙之处经常被忽略。虽然本文讨论的近平衡热力学在很多热力学书上都是标准教科书内容，不涉及远离平衡的理论，但知乎上近平衡热力学的内容同样十分少见，因此斗胆写篇小文抛砖引玉。</p>
+<h2 id="局域平衡近似">局域平衡近似</h2>
+<p>我们熟知，热力学第二定律给出了系统熵增与吸热之间的不等式关联：</p>
+<p><span class="math display">\[
+dS \geq \dfrac{đQ}{T} \tag{1}
+\]</span></p>
+<p>其中，等号适用于可逆过程，不等号适用于不可逆过程。对于不可逆过程，由于系统时刻发生动态变化，一般而言很难处理。</p>
+<p><strong>局域平衡近似</strong>则是说，如果把处于非平衡态的系统切割成许许多多足够宏观小、微观大的小块，我们可以认为每一个小块处在<strong>局域平衡状态</strong>，也即在每一小块内，温度
+<span class="math inline">\(T\)</span>、压强 <span
+class="math inline">\(p\)</span>、密度 <span
+class="math inline">\(\rho\)</span>、化学势 <span
+class="math inline">\(\mu\)</span>
+近似是均匀的。那么对于每一个小块，我们都可以应用热力学基本方程：</p>
+<p><span class="math display">\[
+TdS=dU+pdV-\sum_k \mu_k dN_k \tag{2}
+\]</span></p>
+<p>式中的 <span class="math inline">\(S\)</span>、<span
+class="math inline">\(U\)</span>、<span
+class="math inline">\(V\)</span>、<span
+class="math inline">\(N_k\)</span>
+都指代小块的物理量。局域平衡近似在系统偏离平衡态不大的情形下成立。</p>
+<h2 id="佯谬">佯谬</h2>
+<p>我们现在宣称：在非平衡态系统中，即使是在小偏离条件下，局域平衡近似及
+<span class="math inline">\((2)\)</span>
+式也不能成立，否则热力学第二定律将被推翻。该「佯谬」论述如下：</p>
+<p><strong>情形 I</strong><a href="#fn1" class="footnote-ref"
+id="fnref1"
+role="doc-noteref"><sup>1</sup></a>：我们现在考虑仅存在热传导的系统。</p>
+<p>此时，<span class="math inline">\((2)\)</span> 式改写为</p>
+<p><span class="math display">\[
+TdS=dU \tag{3}
+\]</span></p>
+<p>同时，根据热力学第一定律，并根据无外力做功推得 <span
+class="math inline">\(đW=0\)</span>：</p>
+<p><span class="math display">\[
+dU=đQ+đW=đQ \tag{4}
+\]</span></p>
+<p>对比 <span class="math inline">\((3)\)</span> 和 <span
+class="math inline">\((4)\)</span> 式，立即得到</p>
+<p><span class="math display">\[
+TdS=đQ \tag{5}
+\]</span></p>
+<p>式 <span class="math inline">\((5)\)</span>
+表明，无论系统是否处于平衡态，式 <span
+class="math inline">\((1)\)</span> 的等号永远取到，这显然与不可逆过程
+<span class="math inline">\(TdS&gt;đQ\)</span>
+的论断相矛盾，物理学大厦轰然倒塌（）。</p>
+<p><strong>情形 II</strong><a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a>：我们考虑同时有粒子流
+<span class="math inline">\(\boldsymbol{J}_n\)</span> 和热流 <span
+class="math inline">\(\boldsymbol{J}_q\)</span>
+的情形，但同样忽略体积功。按照书本<a href="#fn3" class="footnote-ref"
+id="fnref3"
+role="doc-noteref"><sup>3</sup></a>的推导，在局域平衡近似的框架下，记局域熵密度、内能密度和粒子数密度分别为
+<span class="math inline">\(s\)</span>、<span
+class="math inline">\(u\)</span>、<span
+class="math inline">\(n\)</span>，它们都是空间坐标 <span
+class="math inline">\(\boldsymbol{r}\)</span> 和时间 <span
+class="math inline">\(t\)</span>
+的函数。对于固定体积元，考虑因存在粒子流而带来的粒子数密度随时间的变化，则有：</p>
+<p><span class="math display">\[
+\dfrac{\partial n}{\partial t} = -\nabla \cdot \boldsymbol{J}_n \tag{6}
+\]</span></p>
+<p>同样，由于存在热流和粒子流，固定体积元中的内能同样随时间发生变化。由于热流造成的内能变化由
+<span class="math inline">\(\boldsymbol{J}_q\)</span>
+衡量；由于粒子流造成的内能变化由化学势 <span
+class="math inline">\(\mu\)</span> 乘上粒子流 <span
+class="math inline">\(\boldsymbol{J}_n\)</span>
+来衡量，因粒子数密度每增加 <span
+class="math inline">\(dn\)</span>，内能密度就增加 <span
+class="math inline">\(\mu dn\)</span>。将这两部分加起来则有：</p>
+<p><span class="math display">\[
+\dfrac{\partial u}{\partial t} = -\nabla \cdot \left( \boldsymbol{J}_q +
+\mu \boldsymbol{J}_n \right) \tag{7}
+\]</span></p>
+<p>接下来，根据式 <span class="math inline">\((2)\)</span>：</p>
+<p><span class="math display">\[
+TdS = dU-\mu dN \tag{8}
+\]</span></p>
+<p>同时，根据热力学第一定律：</p>
+<p><span class="math display">\[
+dU = đQ+đW+\mu dN = đQ+\mu dN \tag{9}
+\]</span></p>
+<p>结合 <span class="math inline">\((8)\)</span>、<span
+class="math inline">\((9)\)</span> 两式，我们再次得到</p>
+<p><span class="math display">\[
+đQ=TdS \tag{10}
+\]</span></p>
+<p>为了说明推论 <span class="math inline">\((10)\)</span>
+式是不成立的，我们考虑用两种方式计算局域熵密度随时间的变化。如果根据
+<span class="math inline">\((8)\)</span> 式：</p>
+<p><span class="math display">\[
+\dfrac{\partial s}{\partial t} = \dfrac{1}{T} \left( \dfrac{\partial
+u}{\partial t} -\mu \dfrac{\partial n}{\partial t}\right) \tag{11}
+\]</span></p>
+<p>将 <span class="math inline">\((6)\)</span>、<span
+class="math inline">\((7)\)</span> 两式代入即得</p>
+<p><span class="math display">\[
+\begin{align}
+    \dfrac{\partial s}{\partial t} &amp;= \dfrac{1}{T} \left( - \nabla
+\cdot \left( \boldsymbol{J}_q + \mu \boldsymbol{J}_n \right) +
+\mu  \nabla \cdot \boldsymbol{J}_n \right) \\ &amp;= - \dfrac{1}{T}
+\nabla \cdot \boldsymbol{J}_q - \dfrac{1}{T} \nabla \mu \cdot
+\boldsymbol{J}_n
+\end{align} \tag{12}
+\]</span></p>
+<p>但是，如果根据 <span class="math inline">\((10)\)</span> 式，</p>
+<p><span class="math display">\[
+\dfrac{\partial s}{\partial t} = \dfrac{1}{T} (-\nabla \cdot
+\boldsymbol{J}_q) \tag{13}
+\]</span></p>
+<p>此结果与 <span class="math inline">\((12)\)</span> 式对比后发现缺失
+<span class="math inline">\(\nabla \mu\)</span>
+一项，至此，物理学大厦轰然倒塌（笑）。</p>
+<h2 id="佯谬的解决">佯谬的解决</h2>
+<p>显然，在不可逆过程中，<span class="math inline">\(đQ=TdS\)</span>
+是不能成立的。那么，上述两种情形的分析究竟出错在何处呢？</p>
+<p>省流版：<strong>在情形 I 中，我们混淆了环境温度 <span
+class="math inline">\(T_\text{env}\)</span> 和系统自身的局域平衡温度
+<span class="math inline">\(T_\text{sys}\)</span>；在情形 II
+中，我们混淆了粒子流的化学势 <span
+class="math inline">\(\mu_\text{ext}\)</span> 和系统自身的局域平衡化学势
+<span class="math inline">\(\mu_\text{sys}\)</span>。</strong></p>
+<p>回顾热力学第二定律式 <span class="math inline">\((1)\)</span>：</p>
+<p><span class="math display">\[
+dS \geq \dfrac{đQ}{T} \tag{1}
+\]</span></p>
+<p>式中的 <span class="math inline">\(T\)</span>
+应当指代<strong>环境温度</strong> <span
+class="math inline">\(T_\text{env}\)</span>。原因在于，设想环境（热源）和系统组成的大系统，该大系统构成封闭系统，总熵不减。热源给系统传热
+<span class="math inline">\(đQ\)</span>，熵减 <span
+class="math inline">\(-\dfrac{đQ}{T_\text{env}}\)</span>，总熵增 <span
+class="math inline">\(dS + \left( -\dfrac{đQ}{T_\text{env}} \right) \geq
+0\)</span>，不涉及系统自身温度 <span
+class="math inline">\(T_\text{sys}\)</span>。</p>
+<p>然而，局域平衡近似下，对小块写出的热力学基本方程式 <span
+class="math inline">\((2)\)</span>：</p>
+<p><span class="math display">\[
+TdS=dU+pdV-\sum_k \mu_k dN_k \tag{2}
+\]</span></p>
+<p>式中的 <span class="math inline">\(T\)</span>、<span
+class="math inline">\(p\)</span>、<span
+class="math inline">\(\mu_k\)</span>
+均为<strong>系统温度、系统压强和系统化学势</strong> <span
+class="math inline">\(T_\text{sys}\)</span>、<span
+class="math inline">\(p_\text{sys}\)</span> 和 <span
+class="math inline">\(\mu_{k,\
+\text{sys}}\)</span>。原因在于，热力学基本方程式 <span
+class="math inline">\((2)\)</span>
+是在准静态过程条件下，结合热力学第一定律和热力学第二定律导出的方程。在准静态条件下，系统处处均匀，无需区分环境温度和系统自身温度，式
+<span class="math inline">\((1)\)</span> 同样取等号。式 <span
+class="math inline">\((2)\)</span>
+能推广到局域平衡条件的逻辑为，只要在局域小块内能定义 <span
+class="math inline">\(S\)</span>、<span
+class="math inline">\(U\)</span>、<span
+class="math inline">\(V\)</span>、<span
+class="math inline">\(N_k\)</span>，就可以把局域小块的 <span
+class="math inline">\(S\)</span> 表达成以局域小块自身的 <span
+class="math inline">\(U\)</span>、<span
+class="math inline">\(V\)</span>、<span
+class="math inline">\(N_k\)</span> 为变量的函数 <span
+class="math inline">\(S(U,V,N_k)\)</span>。在各种非平衡梯度足够小情况下，这些局域小块就可视作处于平衡态，因此就可以假设这些局域小块都被包裹在与该小块相同温度、压强、化学势（<span
+class="math inline">\(T_\text{sys}\)</span>、<span
+class="math inline">\(p_\text{sys}\)</span> 和 <span
+class="math inline">\(\mu_{k,\
+\text{sys}}\)</span>）的环境中，从而得到和平衡态相同的微分关系 <span
+class="math inline">\((2)\)</span>
+式。整个逻辑推导过程不涉及真实环绕该局域平衡小块的温度、压强和化学势。</p>
+<p>有了这些概念后，我们就可以着手解决佯谬了。</p>
+<ul>
+<li>对于<strong>情形 I</strong>（仅存在热传导的系统），式 <span
+class="math inline">\((3)\)</span> 和式 <span
+class="math inline">\((5)\)</span> 应该写为</li>
+</ul>
+<p><span class="math display">\[
+T_\text{sys}dS=dU \tag{3.1}
+\]</span></p>
+<p>和</p>
+<p><span class="math display">\[
+T_\text{sys}dS=đQ = -\oint {\boldsymbol{J}_q \cdot d\boldsymbol{S}}dt
+\tag{5.1}
+\]</span></p>
+<p>而热力学第二定律在这时应当表述为</p>
+<p><span class="math display">\[
+dS&gt;\oint \dfrac{热流}{环境温度} = -\oint \dfrac{\boldsymbol{J}_q
+\cdot d\boldsymbol{S}}{T_\text{env}}dt \tag{14}
+\]</span></p>
+<p>这时，式 <span class="math inline">\((5.1)\)</span> 和式 <span
+class="math inline">\((14)\)</span>
+间便不存在矛盾了。事实上，正是因为有温度梯度 <span
+class="math inline">\(\nabla T\)</span> 的存在，式 <span
+class="math inline">\((14)\)</span>
+的等号才取不到，下面我们仔细讨论这一点。我们把式 <span
+class="math inline">\((14)\)</span> 的右侧通常定义为</p>
+<p><span class="math display">\[
+d_eS \equiv -\oint \dfrac{\boldsymbol{J}_q \cdot
+d\boldsymbol{S}}{T_\text{env}}dt \tag{15}
+\]</span></p>
+<p>它代表由于小块吸热引起的熵的改变，对应一个守恒流——称作<strong>熵流</strong>：</p>
+<p><span class="math display">\[
+\dfrac{\partial_e s}{\partial t} = -\nabla \cdot
+\left(\dfrac{\boldsymbol{J}_q}{T}\right) \equiv - \nabla \cdot
+\boldsymbol{J}_s \tag{16}
+\]</span></p>
+<p>而额外多出来的熵，可以通过对式 <span
+class="math inline">\((5.1)\)</span> 和式 <span
+class="math inline">\((14)\)</span>
+作差得到，这部分熵称作<strong>熵产生</strong>：</p>
+<p><span class="math display">\[
+d_iS \equiv -\dfrac{1}{T_\text{sys}} \oint  {\boldsymbol{J}_q \cdot
+d\boldsymbol{S}}dt +\oint \dfrac{\boldsymbol{J}_q \cdot
+d\boldsymbol{S}}{T_\text{env}}dt \tag{17}
+\]</span></p>
+<p><span class="math display">\[
+\dfrac{\partial_i s}{\partial t} = -\dfrac{1}{T} \nabla \cdot
+\boldsymbol{J}_q + \nabla \cdot \left(\dfrac{\boldsymbol{J}_q}{T}\right)
+=\nabla\dfrac{1}{T} \cdot \boldsymbol{J}_q = -\dfrac{1}{T^2}\nabla T
+\cdot \boldsymbol{J}_q \equiv \varTheta \tag{18}
+\]</span></p>
+<p>对于各向同性材料，<span
+class="math inline">\(\boldsymbol{J}_q\)</span> 总是和 <span
+class="math inline">\(\nabla T\)</span> 反向；一般地，系统稳定性要求
+<span class="math inline">\(\boldsymbol{J}_q \cdot \nabla T\)</span>
+总是小于 <span class="math inline">\(0\)</span>。因此，熵产生 <span
+class="math inline">\(\varTheta\)</span>
+总是半正定的。总的熵平衡方程即为：</p>
+<p><span class="math display">\[
+\dfrac{\partial s}{\partial t} = -\nabla \cdot \boldsymbol{J}_s +
+\varTheta\tag{19}
+\]</span></p>
+<ul>
+<li>对于情形 II（同时有粒子流和热流），式 <span
+class="math inline">\((8)\)</span> 和式 <span
+class="math inline">\((9)\)</span> 应当写为：</li>
+</ul>
+<p><span class="math display">\[
+T_\text{sys}dS = dU-\mu_\text{sys} dN \tag{8.1}
+\]</span></p>
+<p>和</p>
+<p><span class="math display">\[
+\begin{align}
+    dU &amp;= đQ-\left(\oint 粒子流 \cdot 流入粒子化学势 \cdot
+d\boldsymbol{S}\right)dt
+    \\&amp;= -\oint \boldsymbol{J}_q \cdot d\boldsymbol{S}dt-\oint
+\mu_\text{ext} \boldsymbol{J}_n \cdot d\boldsymbol{S}dt
+\end{align}
+\tag{9.1}
+\]</span></p>
+<p>因而并未违反热力学第二定律。事实上，从式 <span
+class="math inline">\((8.1)\)</span> 和式 <span
+class="math inline">\((9.1)\)</span> 中消去 <span
+class="math inline">\(dU\)</span>，即有</p>
+<p><span class="math display">\[
+T_\text{sys}dS = -\oint \boldsymbol{J}_q \cdot d\boldsymbol{S}dt-\oint
+\mu_\text{ext} \boldsymbol{J}_n \cdot d\boldsymbol{S}dt +
+\mu_\text{sys}\oint \boldsymbol{J}_n \cdot d\boldsymbol{S}dt \tag{20}
+\]</span></p>
+<p>其中，第一项为热流，在情形 I
+中已经有详细讨论；而第二项和第三项合并，即可得到化学势梯度对熵产生的贡献：</p>
+<p><span class="math display">\[
+\left(\dfrac{\partial_i s}{\partial t}\right)_{\nabla \mu} =
+\dfrac{\mu}{T}\nabla \cdot \boldsymbol{J}_n - \dfrac{1}{T}\nabla \cdot
+(\mu\boldsymbol{J}_n) = -\dfrac{1}{T}\nabla \mu \cdot \boldsymbol{J}_n
+\tag{21}
+\]</span></p>
+<p>此结果和 <span class="math inline">\((12)\)</span> 式中 <span
+class="math inline">\(-\dfrac{1}{T}\nabla \mu \cdot
+\boldsymbol{J}_n\)</span> 相同。因此，用 <span
+class="math inline">\((12)\)</span>
+式计算的熵流密度随时间变化是正确的，而 <span
+class="math inline">\((13)\)</span> 式则是不完整的。</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>《热力学与统计物理学（第二版）》，林宗涵，p.159。<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>《热力学·统计物理（第六版）》，汪志诚，p.111~115。<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>《热力学·统计物理（第六版）》，汪志诚，p.111~115。<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://f-fish.github.io/2024/11/14/Time-dependent%20Hamiltonian%20in%20Heisenberg%20Picture/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -376,88 +726,6 @@
           <p>突发奇想的创作。 <img src="/images/1.png"
 alt="bouta ... save the world?" /></p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://f-fish.github.io/2024/10/18/Debye's%20Model%20of%20Solids/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bowen Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bowen's Homepage">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/10/18/Debye's%20Model%20of%20Solids/" class="post-title-link" itemprop="url">Debye's Model of Solids</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-10-18 16:29:11" itemprop="dateCreated datePublished" datetime="2024-10-18T16:29:11-04:00">2024-10-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-11-14 11:40:15" itemprop="dateModified" datetime="2024-11-14T11:40:15-05:00">2024-11-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Physics/" itemprop="url" rel="index"><span itemprop="name">Physics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="debye-的固体">Debye 的固体</h2>
-<p>固体里面可以传递声波，这种声波就是原子在其平衡位置附近的小振动。如果这种振动的特征波长远大于原子间距，就可以把它看成是连续化的。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/10/18/Debye's%20Model%20of%20Solids/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
